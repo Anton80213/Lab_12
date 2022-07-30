@@ -1,0 +1,43 @@
+﻿@model Лабораторная_12.Models.Пользователь
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Мой сайт</title>
+</head>
+<body>
+    <div>
+    @using (Ajax.BeginForm("Переход3", new AjaxOptions { UpdateTargetId = "results", HttpMethod = "Post" }))
+    {
+        <h3>Вход в личный кабинет</h3>
+            @Html.HiddenFor(m => m.Id)
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Логин, "Введите логин")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(m => m.Логин)
+                @Html.ValidationMessageFor(model => model.Логин)
+            </div>
+            <br />
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Пароль, "Введите пароль")
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.Пароль)
+                @Html.ValidationMessageFor(model => model.Пароль)
+            </div>
+            <br />
+            @Html.HiddenFor(m => m.ФИО)
+            <input type="submit" value="Вход" /> 
+    }
+    <div id="results"></div>
+    </div>
+    @Scripts.Render("~/scripts/jquery-1.10.2.min.js")
+    @Scripts.Render("~/scripts/jquery.unobtrusive-ajax.min.js")
+</body>
+</html>
+

@@ -1,0 +1,34 @@
+﻿@model Лабораторная_12.Models.MyModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Мой сайт</title>
+</head>
+<body>
+    <div id="results2">
+      <h3>Все сообщения пользователя : @Model.ФИО</h3>
+        <ul>
+            <li>@Ajax.ActionLink(Model.Заголовок_сообщения, "Переход5", new { Заголовок = Model.Заголовок_сообщения }, new AjaxOptions { UpdateTargetId = "results2" })</li>
+            <li>@Model.От_кого</li>
+        </ul>
+       @using (Ajax.BeginForm("Переход5", new AjaxOptions { HttpMethod = "Post" }))
+       {
+        <table>
+            <tr>
+                <td><p>Кому</p></td>
+                <td><input type="text" name="Кому" /> </td>
+            </tr>
+            <tr>
+                <td><p>Текст сообщения</p></td>
+                <td>
+                    <input type="text" name="Текст" />
+                </td>
+            </tr>
+            <tr><td><input type="submit" value="Отправить сообщение" /> </td><td></td></tr>
+        </table>
+       }
+    </div>
+</body>
+</html>

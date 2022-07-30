@@ -1,0 +1,46 @@
+﻿@model Лабораторная_12.Models.Пользователь
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Мой сайт</title>
+</head>
+<body>
+    <div>
+        <h3>Регистрация</h3>
+        <form method="post" action="/Home/Переход2">
+            @Html.HiddenFor(m => m.Id)
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Логин, "Введите логин")
+            </div>
+            <div class="editor-field">
+                @Html.EditorFor(m => m.Логин)
+                @Html.ValidationMessageFor(model => model.Логин)
+            </div>
+            <br />
+            <div class="editor-label">
+                @Html.LabelFor(m => m.Пароль, "Введите пароль")
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.Пароль)
+                @Html.ValidationMessageFor(model => model.Пароль)
+            </div>
+            <br />
+            <div class="editor-label">
+                @Html.LabelFor(m => m.ФИО, "Введите ФИО")
+            </div>
+            <div class="editor-field">
+                @Html.TextBoxFor(m => m.ФИО)
+                @Html.ValidationMessageFor(model => model.ФИО)
+            </div>
+            <br />
+            <input type="submit" value="Сохранить" /> 
+        </form>
+    </div>
+</body>
+</html>
+
